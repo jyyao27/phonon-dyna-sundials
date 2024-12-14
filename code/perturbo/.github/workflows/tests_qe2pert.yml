@@ -1,0 +1,126 @@
+name: tests-qe2pert.x
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+    paths:
+      - 'qe2pert-src/**'
+  pull_request:
+    branches:
+      - master
+    paths:
+      - 'qe2pert-src/**'
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        config:
+          - name: test_qe2pert_ifort_mpi
+            dockerfile: Dockerfile_ifort_mpi
+            tag: ifort_mpi
+            config_machine: config_machine_mpi.yml
+            delete_tools_folder: true
+            test_number: 1
+
+          - name: test_qe2pert_ifort_mpi
+            dockerfile: Dockerfile_ifort_mpi
+            tag: ifort_mpi
+            config_machine: config_machine_mpi.yml
+            delete_tools_folder: true
+            test_number: 2
+
+          - name: test_qe2pert_ifort_mpi
+            dockerfile: Dockerfile_ifort_mpi
+            tag: ifort_mpi
+            config_machine: config_machine_mpi.yml
+            delete_tools_folder: true
+            test_number: 3
+
+          - name: test_qe2pert_ifort_mpi
+            dockerfile: Dockerfile_ifort_mpi
+            tag: ifort_mpi
+            config_machine: config_machine_mpi.yml
+            delete_tools_folder: true
+            test_number: 4
+
+          - name: test_qe2pert_ifort_mpi
+            dockerfile: Dockerfile_ifort_mpi
+            tag: ifort_mpi
+            config_machine: config_machine_mpi.yml
+            delete_tools_folder: true
+            test_number: 5
+
+          - name: test_qe2pert_ifort_mpi
+            dockerfile: Dockerfile_ifort_mpi
+            tag: ifort_mpi
+            config_machine: config_machine_mpi.yml
+            delete_tools_folder: true
+            test_number: 6
+          
+          - name: test_qe2pert_ifort_mpi_no_openmp
+            dockerfile: Dockerfile_ifort_mpi_no_openmp
+            tag: ifort_mpi_no_openmp
+            config_machine: config_machine_mpi.yml
+            delete_tools_folder: true
+            test_number: 4
+          
+          - name: test_qe2pert_ifort_openmp
+            dockerfile: Dockerfile_ifort_openmp
+            tag: ifort_openmp
+            config_machine: config_machine_openmp.yml
+            delete_tools_folder: true
+            test_number: 4
+          
+          - name: test_qe2pert_ifx_openmp
+            dockerfile: Dockerfile_ifx_openmp
+            tag: ifx_openmp
+            config_machine: config_machine_openmp.yml
+            delete_tools_folder: true
+            test_number: 4
+          
+          - name: test_qe2pert_gcc_openmp
+            dockerfile: Dockerfile_gcc_openmp
+            tag: gcc_openmp
+            config_machine: config_machine_openmp.yml
+            delete_tools_folder: true
+            test_number: 4
+         
+          - name: test_qe2pert_ifx
+            dockerfile: Dockerfile_ifx
+            tag: ifx
+            config_machine: config_machine_serial.yml
+            delete_tools_folder: true
+            test_number: 4
+         
+          - name: test_qe2pert_ifort
+            dockerfile: Dockerfile_ifort
+            tag: ifort
+            config_machine: config_machine_serial.yml
+            delete_tools_folder: true
+            test_number: 4
+
+    steps:
+      - name: Delete huge unnecessary tools folder
+        if: matrix.config.delete_tools_folder
+        run: rm -rf /opt/hostedtoolcache
+
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Build Docker image
+        run:  docker build -f ./tests/docker/${{ matrix.config.dockerfile }} -t tests:${{ matrix.config.tag }} --no-cache .
+
+      - name: Run tests
+        env:
+          TEST_NUMBER: ${{ matrix.config.test_number }}
+          CONFIG_MACHINE: ${{ matrix.config.config_machine }}
+          REGIME: qe2pert
+        run: |
+          docker run --rm --name tests_epr_${{ matrix.config.tag }}_${TEST_NUMBER} \
+            -e TEST_NUMBER=${TEST_NUMBER} -e CONFIG_MACHINE=${CONFIG_MACHINE} -e REGIME=${REGIME} \
+            tests:${{ matrix.config.tag }} 

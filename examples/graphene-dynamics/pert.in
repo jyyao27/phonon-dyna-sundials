@@ -1,0 +1,47 @@
+&perturbo
+ prefix      = 'graphene'
+ calc_mode   = 'dynamics-run'
+ dyna_phph = .true.
+ boltz_kdim(1) = 200
+ boltz_kdim(2) = 200
+ boltz_kdim(3) = 1
+
+ boltz_emin = -3.56 ! Dirac cone = -1.36
+ boltz_emax = 0.84
+ band_min = 4
+ band_max = 5
+ 
+ fklist = 'graphene_tet.kpt'
+ fqlist = 'graphene_qg_tet.kpt'
+ ftemper  = 'graphene.temper'
+
+ time_step = 10 !fs
+ boltz_nstep = 100 ! 1ps
+ output_nstep = 1 ! 
+ nphstep = 1
+ solver = 'sundials'
+ sun_method= 'mri'
+ abstol_ph = 1.0d-12
+ abstol_c = 1.0d-9
+ retol = 1.0d-5
+ sundials_mxsteps = -1
+ 
+ hs = 0.5! fs
+
+ boltz_de = 1
+ boltz_de_ph = 1
+
+ boltz_init_dist= 'fermi'
+ boltz_init_e0 = -1.3613 !eV
+ boltz_init_smear = 344.0 !meV
+ 
+ tmp_dir = './tmp'
+ phfreq_cutoff = 1.0 !meV
+ phfreq_cutoff_ph = 1.0 !meV ! changed from 0.001!
+ delta_smear = 20 !meV
+ delta_smear_ph = 1.0 !meV
+
+ load_scatter_eph = .false.
+ load_scatter_ph3 = .false.
+/
+

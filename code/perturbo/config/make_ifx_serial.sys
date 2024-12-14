@@ -1,0 +1,37 @@
+
+# inlcude make.inc of QE
+include ../../make.inc
+
+
+# for intel compiler
+F90=ifx
+FFLAGS += -cpp -O3
+
+# path to HDF5 library
+#IFLAGS += -I/path/to/hdf5/include
+#HDF5_LIBS = -L/path/to/hdf5/lib -lhdf5 -lhdf5_fortran
+# in case of ARM64 flag -L/usr/lib/aarch64-linux-gnu also can be useful
+
+# for debug mode
+#FFLAGS += -fbacktrace -fbounds-check -fcheck=all 
+#LDFLAGS += -fbacktrace -fbounds-check -fcheck=all 
+
+
+MODFLAGS= $(BASEMOD_FLAGS) \
+          $(MOD_FLAG)../../PW/src \
+          $(MOD_FLAG)../../dft-d3 \
+          $(MOD_FLAG)../../LR_Modules\
+			 $(MOD_FLAG)../../PHonon/PH
+
+          
+PHMODS = ../../PHonon/PH/libph.a
+LRMODS = ../../LR_Modules/liblrmod.a
+PWOBJS = ../../PW/src/libpw.a
+QEMODS = ../../Modules/libqemod.a ../../KS_Solvers/libks_solvers.a \
+         ../../FFTXlib/src/libqefft.a ../../LAXlib/libqela.a \
+			../../UtilXlib/libutil.a ../../dft-d3/libdftd3qe.a \
+         ../../upflib/libupf.a ../../XClib/xc_lib.a \
+         ../../MBD/libmbd.a
+
+F90FLAGS = $(FFLAGS) $(FDFLAGS) $(MODFLAGS) $(IFLAGS)
+LDFLAGS += $(HDF5_LIB)
