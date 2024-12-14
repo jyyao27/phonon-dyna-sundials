@@ -1,0 +1,2 @@
+examples/graphene-dynamics/graphene_epr.h5.tar.gz filter=lfs diff=lfs merge=lfs -text
+examples/silicon-dynamics/si_epr.h5.tar.gz filter=lfs diff=lfs merge=lfs -text
