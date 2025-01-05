@@ -1,0 +1,500 @@
+---
+program: perturbo
+
+start date and time:
+   date:  5 January 2025
+   time: "13:21:36"
+
+parallelization:
+   type: MPI+OpenMP
+   number of MPI tasks:  16
+   number of OpenMP threads:  16
+   number of nodes:   4
+
+input parameters:
+   before conversion (before reading from epr file):
+      abstol_c:           1.0000000000000001E-09
+      abstol_ph:           9.9999999999999994E-12
+      adapt_smear_eph:          False
+      adapt_smear_phph:          False
+      band_max:                   6
+      band_min:                   5
+      boltz_acc_thr:           0.0000000000000000E+00
+      boltz_de:           2.0000000000000000E+00
+      boltz_de_ph:           2.0000000000000001E-01
+      boltz_efield:          [ 0.0000000000000000E+00,   0.0000000000000000E+00,   0.0000000000000000E+00,  ]
+      boltz_emax:           7.7999999999999998E+00
+      boltz_emin:           6.4000000000000004E+00
+      boltz_init_dist:          fermi
+      boltz_init_e0:           6.5407329102000000E+00
+      boltz_init_smear:           1.7234656299480000E+02
+      boltz_kdim:          [        20,          20,          20,  ]
+      boltz_norm_dist:          False
+      boltz_norm_energy:          False
+      boltz_nstep:                  20
+      boltz_nstep_min:                   1
+      boltz_qdim:          [        20,          20,          20,  ]
+      calc_mode:          dynamics-pp
+      cauchy_scale:           5.0000000000000003E-02
+      cum_de:           1.0000000000000001E-01
+      cum_inner_emax:           1.0000000000000001E-01
+      cum_inner_emin:          -1.0000000000000001E-01
+      cum_outer_emax:           1.0000000000000001E-01
+      cum_outer_emin:          -1.0000000000000001E-01
+      cum_outer_np:                   1
+      debug:          False
+      delta_smear:           1.0000000000000000E+01
+      delta_smear_ph:           2.0000000000000000E+00
+      divide_grid:          True 
+      dyna_phph:          True 
+      find_efermi:          True 
+      fklist:          si_tet.kpt
+      fqlist:          si_qg_tet.kpt
+      ftemper:          si.temper
+      full_ite:          True 
+      hole:          False
+      hs:           5.0000000000000000E+00
+      load_scatter_eph:          False
+      load_scatter_ph3:          False
+      nphstep:                   1
+      nsamples:              100000
+      output_nstep:                   1
+      phfreq_cutoff:           2.0000000000000001E-01
+      phfreq_cutoff_ph:           2.0000000000000001E-01
+      polar_split:          
+      prefix:          si
+      retol:           1.0000000000000001E-05
+      sampling:          uniform
+      solver:          sundials
+      spectral_emax:           1.0000000000000001E-01
+      spectral_emin:          -1.0000000000000001E-01
+      spectral_np:                   1
+      sun_method:          mri
+      sundials_mxsteps:                 500
+      time_step:           1.0000000000000000E+01
+      tmp_dir:          ./tmp/
+      trans_thr:           2.0000000000000000E-03
+      use_mem:          True 
+      yaml_fname:          pert_output.yml
+   after conversion:
+      abstol_c:           1.0000000000000001E-09
+      abstol_ph:           9.9999999999999994E-12
+      adapt_smear_eph:          False
+      adapt_smear_phph:          False
+      band_max:                   6
+      band_min:                   5
+      boltz_acc_thr:           0.0000000000000000E+00
+      boltz_de:           1.4699723529790109E-04
+      boltz_de_ph:           1.4699723529790110E-05
+      boltz_efield:          [ 0.0000000000000000E+00,   0.0000000000000000E+00,   0.0000000000000000E+00,  ]
+      boltz_emax:           5.7328921766181429E-01
+      boltz_emin:           4.7039115295328354E-01
+      boltz_init_dist:          fermi
+      boltz_init_e0:           4.8073482731069744E-01
+      boltz_init_smear:           1.2667234136665574E-02
+      boltz_kdim:          [        20,          20,          20,  ]
+      boltz_norm_dist:          False
+      boltz_norm_energy:          False
+      boltz_nstep:                  20
+      boltz_nstep_min:                   1
+      boltz_qdim:          [        20,          20,          20,  ]
+      calc_mode:          dynamics-pp
+      cauchy_scale:           5.0000000000000003E-02
+      cum_de:           7.3498617648950550E-06
+      cum_inner_emax:           7.3498617648950553E-03
+      cum_inner_emin:          -7.3498617648950553E-03
+      cum_outer_emax:           7.3498617648950553E-03
+      cum_outer_emin:          -7.3498617648950553E-03
+      cum_outer_np:                   1
+      debug:          False
+      delta_smear:           7.3498617648950549E-04
+      delta_smear_ph:           1.4699723529790109E-04
+      divide_grid:          True 
+      dyna_phph:          True 
+      find_efermi:          True 
+      fklist:          si_tet.kpt
+      fqlist:          si_qg_tet.kpt
+      ftemper:          si.temper
+      full_ite:          True 
+      hole:          False
+      hs:           1.0335343233751543E+02
+      load_scatter_eph:          False
+      load_scatter_ph3:          False
+      nphstep:                   1
+      nsamples:              100000
+      output_nstep:                   1
+      phfreq_cutoff:           1.4699723529790110E-05
+      phfreq_cutoff_ph:           1.4699723529790110E-05
+      polar_split:          
+      prefix:          si
+      retol:           1.0000000000000001E-05
+      sampling:          uniform
+      solver:          sundials
+      spectral_emax:           7.3498617648950553E-03
+      spectral_emin:          -7.3498617648950553E-03
+      spectral_np:                   1
+      sun_method:          mri
+      sundials_mxsteps:                 500
+      time_step:           2.0670686467503086E+02
+      tmp_dir:          ./tmp/
+      trans_thr:           2.0000000000000000E-03
+      use_mem:          True 
+      yaml_fname:          si_dynamics-pp.yml
+
+
+basic data:
+   alat:          10.2640000000
+   alat units:       bohr
+   # a vector is a row
+   lattice vectors:
+         - [  -0.50000,     0.00000,     0.50000,  ]
+         - [   0.00000,     0.50000,     0.50000,  ]
+         - [  -0.50000,     0.50000,     0.00000,  ]
+   lattice vectors units:       alat
+   reciprocal lattice vectors:
+   # a vector is a row
+         - [  -1.00000,    -1.00000,     1.00000,  ]
+         - [   1.00000,     1.00000,     1.00000,  ]
+         - [  -1.00000,     1.00000,    -1.00000,  ]
+   reciprocal lattice vectors units:       2pi/alat
+   number of atoms in unit cell:                2
+   atomic positions:
+   # a vector is a row
+         - [   0.00000,     0.00000,     0.00000,  ]
+         - [  -0.25000,     0.25000,     0.25000,  ]
+   atomic positions units:       alat
+   volume:         270.3273199360
+   volume units:       bohr^3
+   number of symmetry operations:               48
+   symop:
+      1:
+         - [    1,      0,      0,  ]
+         - [    0,      1,      0,  ]
+         - [    0,      0,      1,  ]
+      2:
+         - [    0,      1,      0,  ]
+         - [    1,      0,      0,  ]
+         - [   -1,     -1,     -1,  ]
+      3:
+         - [   -1,     -1,     -1,  ]
+         - [    0,      0,      1,  ]
+         - [    0,      1,      0,  ]
+      4:
+         - [    0,      0,      1,  ]
+         - [   -1,     -1,     -1,  ]
+         - [    1,      0,      0,  ]
+      5:
+         - [    0,     -1,      0,  ]
+         - [   -1,      0,      0,  ]
+         - [    0,      0,     -1,  ]
+      6:
+         - [   -1,      0,      0,  ]
+         - [    0,     -1,      0,  ]
+         - [    1,      1,      1,  ]
+      7:
+         - [    0,      0,     -1,  ]
+         - [    1,      1,      1,  ]
+         - [    0,     -1,      0,  ]
+      8:
+         - [    1,      1,      1,  ]
+         - [    0,      0,     -1,  ]
+         - [   -1,      0,      0,  ]
+      9:
+         - [   -1,      0,      0,  ]
+         - [    0,      0,     -1,  ]
+         - [    0,     -1,      0,  ]
+      10:
+         - [    1,      1,      1,  ]
+         - [    0,     -1,      0,  ]
+         - [    0,      0,     -1,  ]
+      11:
+         - [    0,     -1,      0,  ]
+         - [    1,      1,      1,  ]
+         - [   -1,      0,      0,  ]
+      12:
+         - [    0,      0,     -1,  ]
+         - [   -1,      0,      0,  ]
+         - [    1,      1,      1,  ]
+      13:
+         - [   -1,      0,      0,  ]
+         - [    1,      1,      1,  ]
+         - [    0,      0,     -1,  ]
+      14:
+         - [    0,      0,     -1,  ]
+         - [    0,     -1,      0,  ]
+         - [   -1,      0,      0,  ]
+      15:
+         - [    0,     -1,      0,  ]
+         - [    0,      0,     -1,  ]
+         - [    1,      1,      1,  ]
+      16:
+         - [    1,      1,      1,  ]
+         - [   -1,      0,      0,  ]
+         - [    0,     -1,      0,  ]
+      17:
+         - [   -1,     -1,     -1,  ]
+         - [    0,      1,      0,  ]
+         - [    1,      0,      0,  ]
+      18:
+         - [    0,      0,      1,  ]
+         - [    1,      0,      0,  ]
+         - [    0,      1,      0,  ]
+      19:
+         - [    1,      0,      0,  ]
+         - [    0,      0,      1,  ]
+         - [   -1,     -1,     -1,  ]
+      20:
+         - [    0,      1,      0,  ]
+         - [   -1,     -1,     -1,  ]
+         - [    0,      0,      1,  ]
+      21:
+         - [    0,      0,      1,  ]
+         - [    0,      1,      0,  ]
+         - [   -1,     -1,     -1,  ]
+      22:
+         - [   -1,     -1,     -1,  ]
+         - [    1,      0,      0,  ]
+         - [    0,      0,      1,  ]
+      23:
+         - [    0,      1,      0,  ]
+         - [    0,      0,      1,  ]
+         - [    1,      0,      0,  ]
+      24:
+         - [    1,      0,      0,  ]
+         - [   -1,     -1,     -1,  ]
+         - [    0,      1,      0,  ]
+      25:
+         - [   -1,      0,      0,  ]
+         - [    0,     -1,      0,  ]
+         - [    0,      0,     -1,  ]
+      26:
+         - [    0,     -1,      0,  ]
+         - [   -1,      0,      0,  ]
+         - [    1,      1,      1,  ]
+      27:
+         - [    1,      1,      1,  ]
+         - [    0,      0,     -1,  ]
+         - [    0,     -1,      0,  ]
+      28:
+         - [    0,      0,     -1,  ]
+         - [    1,      1,      1,  ]
+         - [   -1,      0,      0,  ]
+      29:
+         - [    0,      1,      0,  ]
+         - [    1,      0,      0,  ]
+         - [    0,      0,      1,  ]
+      30:
+         - [    1,      0,      0,  ]
+         - [    0,      1,      0,  ]
+         - [   -1,     -1,     -1,  ]
+      31:
+         - [    0,      0,      1,  ]
+         - [   -1,     -1,     -1,  ]
+         - [    0,      1,      0,  ]
+      32:
+         - [   -1,     -1,     -1,  ]
+         - [    0,      0,      1,  ]
+         - [    1,      0,      0,  ]
+      33:
+         - [    1,      0,      0,  ]
+         - [    0,      0,      1,  ]
+         - [    0,      1,      0,  ]
+      34:
+         - [   -1,     -1,     -1,  ]
+         - [    0,      1,      0,  ]
+         - [    0,      0,      1,  ]
+      35:
+         - [    0,      1,      0,  ]
+         - [   -1,     -1,     -1,  ]
+         - [    1,      0,      0,  ]
+      36:
+         - [    0,      0,      1,  ]
+         - [    1,      0,      0,  ]
+         - [   -1,     -1,     -1,  ]
+      37:
+         - [    1,      0,      0,  ]
+         - [   -1,     -1,     -1,  ]
+         - [    0,      0,      1,  ]
+      38:
+         - [    0,      0,      1,  ]
+         - [    0,      1,      0,  ]
+         - [    1,      0,      0,  ]
+      39:
+         - [    0,      1,      0,  ]
+         - [    0,      0,      1,  ]
+         - [   -1,     -1,     -1,  ]
+      40:
+         - [   -1,     -1,     -1,  ]
+         - [    1,      0,      0,  ]
+         - [    0,      1,      0,  ]
+      41:
+         - [    1,      1,      1,  ]
+         - [    0,     -1,      0,  ]
+         - [   -1,      0,      0,  ]
+      42:
+         - [    0,      0,     -1,  ]
+         - [   -1,      0,      0,  ]
+         - [    0,     -1,      0,  ]
+      43:
+         - [   -1,      0,      0,  ]
+         - [    0,      0,     -1,  ]
+         - [    1,      1,      1,  ]
+      44:
+         - [    0,     -1,      0,  ]
+         - [    1,      1,      1,  ]
+         - [    0,      0,     -1,  ]
+      45:
+         - [    0,      0,     -1,  ]
+         - [    0,     -1,      0,  ]
+         - [    1,      1,      1,  ]
+      46:
+         - [    1,      1,      1,  ]
+         - [   -1,      0,      0,  ]
+         - [    0,      0,     -1,  ]
+      47:
+         - [    0,     -1,      0,  ]
+         - [    0,      0,     -1,  ]
+         - [   -1,      0,      0,  ]
+      48:
+         - [   -1,      0,      0,  ]
+         - [    1,      1,      1,  ]
+         - [    0,     -1,      0,  ]
+   kc dimensions:
+         - [      6,        6,        6,  ]
+   spinor:       False
+   polar_alpha:           1.0000000000
+   epsil:
+   # a vector is a row
+         - [      1.00000000,        1.00000000,        1.00000000,  ]
+         - [      1.00000000,        1.00000000,        1.00000000,  ]
+         - [      1.00000000,        1.00000000,        1.00000000,  ]
+   qc dimensions:
+         - [      6,        6,        6,  ]
+   mass:
+      -       25597.91156771
+      -       25597.91156771
+   mass units:       atomic
+   zstar:
+      1:
+         - [   0.00000,     0.00000,     0.00000,  ]
+         - [   0.00000,     0.00000,     0.00000,  ]
+         - [   0.00000,     0.00000,     0.00000,  ]
+      2:
+         - [   0.00000,     0.00000,     0.00000,  ]
+         - [   0.00000,     0.00000,     0.00000,  ]
+         - [   0.00000,     0.00000,     0.00000,  ]
+   system_2d:       False
+   number of Wannier functions:                8
+   wannier_center:
+   # a vector is a row
+         - [   0.08493,     0.08493,     0.08493,  ]
+         - [   0.08493,    -0.08493,    -0.08493,  ]
+         - [  -0.08493,     0.08493,    -0.08493,  ]
+         - [  -0.08493,    -0.08493,     0.08493,  ]
+         - [  -0.20961,     0.29039,     0.29039,  ]
+         - [  -0.20961,     0.20961,     0.20961,  ]
+         - [  -0.29039,     0.29039,     0.20961,  ]
+         - [  -0.29039,     0.20961,     0.29039,  ]
+   wannier_center units: cartesian
+   wannier_center_cryst:
+   # a vector is a row
+         - [  -0.08493,     0.25478,    -0.08493,  ]
+         - [  -0.08493,    -0.08493,    -0.08493,  ]
+         - [  -0.08493,    -0.08493,     0.25478,  ]
+         - [   0.25478,    -0.08493,    -0.08493,  ]
+         - [   0.20961,     0.37116,     0.20961,  ]
+         - [   0.20961,     0.20961,     0.20961,  ]
+         - [   0.20961,     0.20961,     0.37116,  ]
+         - [   0.37116,     0.20961,     0.20961,  ]
+   wannier_center_cryst units: crystal
+
+k-grid:
+   number of  tetrahedra selected:      16608
+   number of reducible k-points:       3877
+   number of irreducible k-points:        128
+
+
+q-grid:
+   number of  tetrahedra selected:      48000
+   number of reducible q-points:       8000
+   number of irreducible q-points:        256
+
+
+dynamics-pp:
+
+   time units: fs
+
+   concentation units: num. of carriers/u.c.
+
+   number of snaps:      20
+
+   time:
+      -  0.0000000000000000E+00
+      -  1.0000000000000000E+01
+      -  2.0000000000000000E+01
+      -  3.0000000000000000E+01
+      -  4.0000000000000000E+01
+      -  5.0000000000000000E+01
+      -  6.0000000000000000E+01
+      -  7.0000000000000000E+01
+      -  8.0000000000000000E+01
+      -  9.0000000000000000E+01
+      -  1.0000000000000000E+02
+      -  1.1000000000000000E+02
+      -  1.2000000000000000E+02
+      -  1.3000000000000000E+02
+      -  1.4000000000000000E+02
+      -  1.5000000000000000E+02
+      -  1.6000000000000000E+02
+      -  1.7000000000000000E+02
+      -  1.8000000000000000E+02
+      -  1.9000000000000000E+02
+      -  2.0000000000000000E+02
+
+   concentration:
+      -  4.9648094380564051E-04
+      -  4.9699632173616883E-04
+      -  4.9744052627689048E-04
+      -  4.9783219335478013E-04
+      -  4.9818170572434170E-04
+      -  4.9849554642422862E-04
+      -  4.9877816988607793E-04
+      -  4.9903290438564011E-04
+      -  4.9926242205516999E-04
+      -  4.9946899381674687E-04
+      -  4.9965462977752926E-04
+      -  4.9982115644130599E-04
+      -  4.9997025863830682E-04
+      -  5.0010350187081780E-04
+      -  5.0022234406326771E-04
+      -  5.0032814188566877E-04
+      -  5.0042215459203897E-04
+      -  5.0050554699746517E-04
+      -  5.0057939243422760E-04
+      -  5.0064467606641722E-04
+      -  5.0070229867868216E-04
+
+timings:
+
+   time units: s
+
+   PERTURBO:
+      cpu:        13.55752700
+      wall:        1.00032997
+      calls:         1
+
+   carrier_popu:
+      cpu:         2.37736400
+      wall:        0.15296245
+      calls:        21
+
+   phonon_pop:
+      cpu:        10.13982800
+      wall:        0.64294791
+      calls:        21
+
+   writing:
+      cpu:         0.12796100
+      wall:        0.00663257
+      calls:        21
+...

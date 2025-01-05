@@ -1,0 +1,46 @@
+&perturbo
+ prefix      = 'si'
+ calc_mode   = 'dynamics-pp'
+ divide_grid = .true.
+ find_efermi = .true.
+ dyna_phph = .true.
+
+ boltz_kdim(1) = 20 
+ boltz_kdim(2) = 20
+ boltz_kdim(3) = 20
+
+ boltz_emin = 6.4
+ boltz_emax = 7.8
+ band_min = 5
+ band_max = 6
+ 
+ ftemper  = 'si.temper'
+ fklist = 'si_tet.kpt'
+ fqlist = 'si_qg_tet.kpt'
+
+ time_step = 10 !fs
+ boltz_nstep = 20 ! 5ps
+ output_nstep = 1 ! every 20 fs
+ nphstep = 1
+ solver = 'sundials'
+ sun_method= 'mri'
+ abstol_ph = 1.0d-11
+ abstol_c = 1.0d-9
+ retol = 1.0d-5
+ 
+ hs = 5 !fs
+
+ boltz_init_dist= 'fermi'
+ boltz_init_e0 = 6.5407329102 !eV
+ boltz_init_smear = 172.3465629948 !meV ! 344
+
+ boltz_de = 2 ! meV
+ boltz_de_ph = 0.2 ! meV
+
+ tmp_dir =  './tmp' 
+ phfreq_cutoff = 0.2 !meV
+ phfreq_cutoff_ph = 0.2 !meV
+ delta_smear = 10 !meV
+ delta_smear_ph = 2 !meV
+/
+

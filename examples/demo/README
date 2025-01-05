@@ -1,0 +1,22 @@
+This folder contains a demo for running the code. 
+The example uses a small k- and q-grid size for demonstration purposes. The results are not converged.
+
+Please download and unzip the si_epr.h5 file and move it to this directory.
+
+
+First run setup.in
+perturbo.x -i setup.in > setup.out
+
+Then run cdyna.in to obtain si_cdyna.h5 for electron and phonon populations 
+perturbo.x -i cdyna.in > cdyna.out
+
+Run pp.in to obtain si_popu.h5 for hole populations as a function of energy
+perturbo.x -i pp_hole.in > pp_hole.out
+Rename si_popu.h5 to si_popu_hole.h5
+
+Finally run pp.in to obtain si_popu.h5 for electron populations as a function of energy
+perturbo.x -i pp_elec.in > pp_elec.out
+
+The reference outputs are in the Reference folder in this directory.
+
+The typical run time should be about 20 hours on a typical 16G memory laptop. 

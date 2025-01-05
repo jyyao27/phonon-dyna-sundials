@@ -1,0 +1,33 @@
+
+   Program PERTURBO starts on  5Jan2025 at 13:12:24 
+
+     Parallel version (MPI & OpenMP), running on     256 processor cores
+     Number of MPI processes:                16
+     Threads/MPI process:                    16
+
+     MPI processes distributed on     4 nodes
+
+     calc_mode = 'setup'
+     --------------------------------------------------
+     The si_epr.h5 HDF5 file was found and will be used in the calculation.
+
+     band_min:    5  band_max:    6
+     >loading kpt, tetra from si_tet.h5
+
+     number of tetrahedra selected:      16608
+     number of reducible k-points:       3877
+     number of irreducible k-points:        128
+
+     >loading kpt, tetra from si_tet.h5
+
+     number of tetrahedra selected:      48000
+     number of reducible q-points:       8000
+     number of irreducible q-points:        256
+
+     Energy window (eV):     6.400000     7.800000
+
+
+     PERTURBO     :      0.70s CPU      0.21s WALL
+
+
+   Program was terminated on:  13:12:24   5Jan2025             

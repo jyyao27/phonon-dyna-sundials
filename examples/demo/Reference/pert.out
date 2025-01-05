@@ -1,0 +1,16 @@
+
+   Program PERTURBO starts on  5Jan2025 at 13: 5:12 
+
+     Parallel version (MPI & OpenMP), running on     256 processor cores
+     Number of MPI processes:                16
+     Threads/MPI process:                    16
+
+     MPI processes distributed on     4 nodes
+
+
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+     Error in routine init_input_param (1):
+     reading ntemper in file si.temper
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+     stopping ...

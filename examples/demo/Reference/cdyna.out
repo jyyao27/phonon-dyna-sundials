@@ -1,0 +1,187 @@
+
+   Program PERTURBO starts on  5Jan2025 at 13:12:24 
+
+     Parallel version (MPI & OpenMP), running on     256 processor cores
+     Number of MPI processes:                16
+     Threads/MPI process:                    16
+
+     MPI processes distributed on     4 nodes
+
+     calc_mode = 'dynamics-run'
+     --------------------------------------------------
+     The si_epr.h5 HDF5 file was found and will be used in the calculation.
+
+     band_min:    5  band_max:    6
+     Using SUNDIALS solvers
+     >loading kpt, tetra from si_tet.h5
+
+     number of tetrahedra selected:      16608
+     number of reducible k-points:       3877
+     number of irreducible k-points:        128
+
+     >start scatter_setup
+     No. of q-points and (k,q) pairs on each processor:
+     Proc.   1:  #.q      8000 |  #.(k,q)       81541
+     Proc.   2:  #.q      8000 |  #.(k,q)       83077
+     Proc.   3:  #.q      8000 |  #.(k,q)       82895
+     Proc.   4:  #.q      8000 |  #.(k,q)       83194
+     Proc.   5:  #.q      8000 |  #.(k,q)       83516
+     Proc.   6:  #.q      8000 |  #.(k,q)       81081
+     Proc.   7:  #.q      8000 |  #.(k,q)       77297
+     Proc.   8:  #.q      8000 |  #.(k,q)       83299
+     Proc.   9:  #.q      8000 |  #.(k,q)       83532
+     Proc.  10:  #.q      8000 |  #.(k,q)       80975
+     Proc.  11:  #.q      8000 |  #.(k,q)       80318
+     Proc.  12:  #.q      8000 |  #.(k,q)       80817
+     Proc.  13:  #.q      8000 |  #.(k,q)       79772
+     Proc.  14:  #.q      8000 |  #.(k,q)       82487
+     Proc.  15:  #.q      8000 |  #.(k,q)       83015
+     Proc.  16:  #.q      8000 |  #.(k,q)       82956
+    |--------------------------------------------------|
+     Computing EPhMatrix:                
+           2.06%
+           6.17%
+          10.29%
+          14.40%
+          18.11%
+          22.22%
+          26.34%
+          30.04%
+          34.16%
+          38.27%
+          42.39%
+          46.09%
+          50.21%
+          54.32%
+          58.02%
+          62.14%
+          66.26%
+          70.37%
+          74.07%
+          78.19%
+          82.30%
+          86.01%
+          90.12%
+          94.24%
+          98.35%
+         100.00%
+    |--------------------------------------------------|
+     >scatter_setup done.
+     >loading kpt, tetra from si_tet.h5
+
+     number of tetrahedra selected:      48000
+     number of reducible q-points:       8000
+     number of irreducible q-points:        256
+
+     Running dynamics with anharmonic phonon interaction
+     Trimming ifcts
+     >start ph3scat_setup
+     interpolate from a coarser grid:
+     No. of q-points and (q,q) pairs on each processor:
+     Proc.   1 |  #.(q,q)       30926
+     Proc.   2 |  #.(q,q)       31502
+     Proc.   3 |  #.(q,q)       31523
+     Proc.   4 |  #.(q,q)       31560
+     Proc.   5 |  #.(q,q)       31511
+     Proc.   6 |  #.(q,q)       31505
+     Proc.   7 |  #.(q,q)       31500
+     Proc.   8 |  #.(q,q)       31530
+     Proc.   9 |  #.(q,q)       30877
+     Proc.  10 |  #.(q,q)       30919
+     Proc.  11 |  #.(q,q)       30926
+     Proc.  12 |  #.(q,q)       30921
+     Proc.  13 |  #.(q,q)       30814
+     Proc.  14 |  #.(q,q)       30898
+     Proc.  15 |  #.(q,q)       30621
+     Proc.  16 |  #.(q,q)       30771
+    |--------------------------------------------------|
+     Computing Ph3Matrix:                
+           3.17%
+           6.35%
+          11.11%
+          14.29%
+          19.05%
+          22.22%
+          26.98%
+          30.16%
+          34.92%
+          38.10%
+          42.86%
+          46.03%
+          50.79%
+          55.56%
+          58.73%
+          63.49%
+          66.67%
+          71.43%
+          74.60%
+          79.37%
+          82.54%
+          87.30%
+          90.48%
+          95.24%
+          98.41%
+         100.00%
+    |--------------------------------------------------|
+     >ph3scat_setup done.
+    |--------------------------------------------------|
+     Carrier Dynamics:                   
+ time step :           1
+           5.00%
+ time step :           2
+          10.00%
+ time step :           3
+          15.00%
+ time step :           4
+          20.00%
+ time step :           5
+          25.00%
+ time step :           6
+          30.00%
+ time step :           7
+          35.00%
+ time step :           8
+          40.00%
+ time step :           9
+          45.00%
+ time step :          10
+          50.00%
+ time step :          11
+          55.00%
+ time step :          12
+          60.00%
+ time step :          13
+          65.00%
+ time step :          14
+          70.00%
+ time step :          15
+          75.00%
+ time step :          16
+          80.00%
+ time step :          17
+          85.00%
+ time step :          18
+          90.00%
+ time step :          19
+          95.00%
+ time step :          20
+         100.00%
+    |--------------------------------------------------|
+
+     PERTURBO     :      1h22m CPU   7m33.49s WALL
+
+     scat_setup   :     75.68s CPU      6.72s WALL (       1 calls)
+     set_kq_pair  :      0.53s CPU      0.04s WALL (       1 calls)
+     init_eph_wan :      0.83s CPU      1.66s WALL (       1 calls)
+     compute_g2   :     74.30s CPU      4.85s WALL (       1 calls)
+     load_eph_g2  :      0.01s CPU      0.15s WALL (       1 calls)
+     init_dyna    :   4538.09s CPU    424.21s WALL (       1 calls)
+     phscat_setup :   4400.10s CPU    315.21s WALL (       1 calls)
+     set_qq_pair  :      0.06s CPU      0.00s WALL (       1 calls)
+     comp_ph3psi2 :   4399.99s CPU    315.10s WALL (       1 calls)
+     dynamics_tot :    332.53s CPU     22.42s WALL (       1 calls)
+     pts          :      1.81s CPU      0.14s WALL (     808 calls)
+     phph_scatint :    241.90s CPU     16.44s WALL (     120 calls)
+     eph_scatint  :     82.19s CPU      5.34s WALL (     687 calls)
+
+   Program was terminated on:  13:19:58   5Jan2025             

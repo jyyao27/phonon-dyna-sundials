@@ -12,6 +12,12 @@ Linking SUNDIALS and TDEP in this version of the code is used by specifying comp
 
 Refer to PERTURBO [tutorial](https://perturbo-code.github.io) for Perturbo download, installation, and usage with TDEP.
 
+## Typical install time
+Typical installation time for Quantum Epsresso is 1 hour. 
+Typical installation time for TDEP is 0.5 hour.
+Typical installation time for SUNDIALS is 0.5 hour.
+Typical installation time for PERTURBO is 10 minutes.
+
 ## Usage
 First run DFT and DFPT calculations using QE.
 
@@ -32,3 +38,8 @@ Set `hs` for slow time step in fs in the MRI mode, `retol` for relative toleranc
 
 After dynamics is computed. One will arrive at _prefix_cynda.h5_ file, containing all the electron and phonon populations as a function of time. Please refer to the online tutorials on the PERTURBO website for details. The post-processing using `calc_mode = dynamics-pp` will genearte _prefix_popu.h5_, which contains the populations as a function of energy.
 
+## folders
+
+graphene-dynamics and silicon-dynamics include the input files for running results for a converged grid (as in the publication)
+
+demo includes the input files for running results for a non-converged grid.

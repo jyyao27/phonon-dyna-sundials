@@ -1,0 +1,58 @@
+
+   Program PERTURBO starts on  5Jan2025 at 13:21:36 
+
+     Parallel version (MPI & OpenMP), running on     256 processor cores
+     Number of MPI processes:                16
+     Threads/MPI process:                    16
+
+     MPI processes distributed on     4 nodes
+
+     calc_mode = 'dynamics-pp'
+     --------------------------------------------------
+     The si_epr.h5 HDF5 file was found and will be used in the calculation.
+
+     band_min:    5  band_max:    6
+     >loading kpt, tetra from si_tet.h5
+
+     number of tetrahedra selected:      16608
+     number of reducible k-points:       3877
+     number of irreducible k-points:        128
+
+     >loading kpt, tetra from si_tet.h5
+
+     number of tetrahedra selected:      48000
+     number of reducible q-points:       8000
+     number of irreducible q-points:        256
+
+    |--------------------------------------------------|
+     Carrier Dynamics - postproc:        
+           0.00%
+           5.00%
+          10.00%
+          15.00%
+          20.00%
+          25.00%
+          30.00%
+          35.00%
+          40.00%
+          45.00%
+          50.00%
+          55.00%
+          60.00%
+          65.00%
+          70.00%
+          75.00%
+          80.00%
+          85.00%
+          90.00%
+          95.00%
+         100.00%
+    |--------------------------------------------------|
+
+     PERTURBO     :     13.56s CPU      1.00s WALL
+
+     carrier_popu :      2.38s CPU      0.15s WALL (      21 calls)
+     phonon_pop   :     10.14s CPU      0.64s WALL (      21 calls)
+     writing      :      0.13s CPU      0.01s WALL (      21 calls)
+
+   Program was terminated on:  13:21:37   5Jan2025             
