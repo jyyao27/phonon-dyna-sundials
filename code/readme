@@ -1,0 +1,4 @@
+perturbo is the code to run dynamics for Si and Graphene
+perturbo-pulse is the code to run dynamics simulating pump pulse for Gaas
+perturbopy contains the code to generate pump pulse, which interfaces with the perturbo-pulse code
+installing instructions can be found online at https://perturbo-code.github.io

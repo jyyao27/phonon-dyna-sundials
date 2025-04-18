@@ -1,0 +1,55 @@
+
+# IMPORTANT: Perturbo must be compiled on top of QE7.2
+
+# for gfortran compiler
+FFLAGS += -fopenmp -x f95-cpp-input -O3 -ffree-line-length-0
+LDFLAGS += -fopenmp
+
+# path to HDF5 library
+#IFLAGS += -I/path/to/hdf5/include
+#HDF5_LIBS = -L/path/to/hdf5/lib -lhdf5 -lhdf5_fortran -lgfortran
+# in case of ARM64 flag -L/usr/lib/aarch64-linux-gnu also can be useful
+
+MODFLAGS= $(BASEMOD_FLAGS) \
+          $(MOD_FLAG)../../PW/src \
+          $(MOD_FLAG)../../dft-d3 \
+          $(MOD_FLAG)../../LR_Modules\
+			 $(MOD_FLAG)../../PHonon/PH
+
+          
+PHMODS = ../../PHonon/PH/libph.a
+LRMODS = ../../LR_Modules/liblrmod.a
+PWOBJS = ../../PW/src/libpw.a
+QEMODS = ../../Modules/libqemod.a ../../KS_Solvers/libks_solvers.a \
+         ../../FFTXlib/src/libqefft.a ../../LAXlib/libqela.a \
+			../../UtilXlib/libutil.a ../../dft-d3/libdftd3qe.a \
+         ../../upflib/libupf.a ../../XClib/xc_lib.a \
+         ../../MBD/libmbd.a
+
+## TDEP related
+## For TDEP/libolle
+#F90FLAGS_TDEP = -ffree-line-length-none -std=f2008 -cpp -DGPx11 -Dclusterprogressbar 
+##for gcc < v10.0.0
+# F90FLAGS_TDEP += -Wno-argument-mismatch 
+## for gcc >= v10.0.0
+##F90FLAGS_TDEP  = -fallow-argument-mismatch
+#IFLAGS_TDEP := ${IFLAGS}
+#OPT = -O0
+#OPTLOW = -O0 
+#MODULE_FLAG = -J
+## For qe2pert and perturbo
+#TDEP_root= ../external/tdep
+#FFLAGS  += -D__TDEP
+#IFLAGS  += -I${TDEP_root}
+#LIBOBJS += ${TDEP_root}/libolle.a
+
+## Sundials related 
+#FFLAGS += -D__SUNDIALS
+#SUNDIALS_root=
+#IFLAGS += -I${SUNDIALS_root}/fortran
+#SUNDIALS_LIBRARY_DIR = ${SUNDIALS_root}/lib64
+#LIBOBJS += $(addprefix -L${SUNDIALS_LIBRARY_DIR}/ -l,sundials_core sundials_fcore_mod sundials_arkode sundials_fnvecserial_mod sundials_farkode_mod sundials_fnvecmanyvector_mod sundials_nvecmanyvector) -lm
+#LINKFLAGS= -Wl,-rpath,${SUNDIALS_LIBRARY_DIR}
+
+F90FLAGS = $(FFLAGS) $(FDFLAGS) $(MODFLAGS) $(IFLAGS)
+LDFLAGS += $(HDF5_LIB)

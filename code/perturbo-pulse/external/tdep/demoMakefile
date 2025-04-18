@@ -1,0 +1,37 @@
+
+include ../../../make.inc
+include ../../make.sys
+
+TDEPMOD = \
+konstanter.f90 \191-
+gottochblandat.f90 \218-
+mpi_wrappers.f90 \248-
+lo_memtracker.f90 \194-
+lo_brents_method.f90 \257-
+lo_sorting.f90 \204-
+type_blas_lapack_wrappers.f90 \371-
+type_linkedlist.f90 \326-
+geometryfunctions.f90 \330-
+type_distancetable.f90 \399-
+type_voronoi.f90 \435-
+type_symmetryoperation.f90 \456-
+type_crystalstructure.f90 \490-
+type_qpointmesh.f90 \593-
+lo_longrange_electrostatics.f90 \292-
+type_forceconstant_secondorder.f90 \529-
+type_forceconstant_thirdorder.f90 562-
+
+OBJ = $(TDEPMOD:.f90=.o)
+
+EXE = libolle.so
+
+default: $(OBJ)
+	$(LD) -shared -fPIC $(LDFLAGS) -o $(EXE) $(OBJ)
+
+
+%.o: %.f90 
+	$(LD) $(F90FLAGS) -fPIC -c $<
+
+clean:
+	rm -f *.o *~ *.d *.mod *.i *.so
+

@@ -1,0 +1,4 @@
+untar gaas_epr.h5.tar.gz
+first run perturbo.x with pulse_dyna.in with calc_mode = 'setup'
+then run pulse_dyna.in with calc_mode = 'dynamics-run' for the pulse simulation
+afterwards, run pert.in to continue running the dynamics after the pump excitation

@@ -1,0 +1,13 @@
+sphinx
+sphinx-rtd-theme
+pydata-sphinx-theme
+sphinx-autodoc-typehints
+
+numpy
+scipy
+matplotlib
+pytest
+pytest-order
+pytest-profiling
+h5py
+PyYAML

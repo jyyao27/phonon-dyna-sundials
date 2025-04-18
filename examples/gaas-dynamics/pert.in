@@ -1,0 +1,51 @@
+&perturbo
+ prefix      = 'gaas'
+ calc_mode   = 'dynamics-run'
+
+ dyna_phph = .true.
+ find_efermi = .true.
+ symm = .true.
+ divide_grid = .true.
+
+ boltz_kdim(1) = 120 
+ boltz_kdim(2) = 120
+ boltz_kdim(3) = 120
+
+ boltz_emin = 5.8    !CBM=5.9 
+ boltz_emax = 6.73  !CBM+800meV
+ band_min = 5
+ band_max = 5
+ 
+ ftemper  = 'gaas.temper'
+ fklist = 'gaas_tet.kpt'
+ fqlist = 'gaas_qg_tet.kpt'
+ 
+ time_step = 500 !fs
+ boltz_nstep = 30 ! 10ps
+ output_nstep = 1 ! every 20 fs
+ nphstep=1 ! every 10 steps
+ solver = 'sundials'
+ sun_method = 'mri'
+ abstol_c = 1E-10
+ abstol_ph = 1E-12
+ retol = 1E-7
+ hs = 50
+ sundials_mxsteps = -1
+
+ boltz_init_dist= 'restart'
+ boltz_init_e0 = 6.2 !eV
+ boltz_init_smear = 40.0 !meV ! 
+ boltz_init_ampl = 0
+ 
+ boltz_de = 2 ! meV
+ boltz_de_ph = 0.1 ! meV
+ 
+ tmp_dir = './tmp'
+ phfreq_cutoff = 1 !meV
+ phfreq_cutoff_ph = 0.2 !meV
+ delta_smear = 8 !meV
+ delta_smear_ph = 0.56 !meV
+ load_scatter_eph = .true.
+ load_scatter_ph3 = .true.
+/
+

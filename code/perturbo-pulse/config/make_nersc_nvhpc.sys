@@ -1,0 +1,108 @@
+
+#IMPORTANT: Perturbo must be compiled on top of QE7.2
+
+#include make.inc of QE
+include ../../make.inc
+
+# for nvfortran compiler
+
+# The C preprocessor is not enabled by default
+FFLAGS += -Mpreprocess
+
+# Hardware-cache-align values
+FFLAGS += -Mcache_align
+
+# The NVIDIA Fortran compiler defaults to small memory model and small arrays,
+# so turn on support for larger allocations (>2GB).
+# https://forums.developer.nvidia.com/t/segmentation-fault-with-openmp/213527/2
+# NOTE:  These flags are picked up from the QE build process
+# NOTE:  Must specify -mcmodel=medium for both compilation and link phases!!!
+FFLAGS += -Mlarge_arrays -mcmodel=medium
+LDFLAGS += -mcmodel=medium
+
+# OpenACC - target NVIDIA GPUs (sassy/perlmutter)
+# -----------------------------------------------
+# - "managed" => use CUDA unified memory for CPU/GPU allocations (this will
+#   likely not be viable long-term on Perlmutter cluster)
+# - "nomanaged,deepcopy,zeroinit" => don't use CUDA unified memory, and use
+#   the experimental deep-copy support in the NVIDIA compiler.  Note that
+#   zeroinit becomes necessary because non-managed GPU allocations are not
+#   zero-initialized.
+
+# To enable OpenACC + disabling CUDA unified memory:
+FFLAGS += -acc=gpu -Minfo=accel -gpu=cc80,nomanaged,deepcopy,zeroinit
+LDFLAGS += -acc=gpu -gpu=cc80,nomanaged,deepcopy,zeroinit
+
+# To disable OpenACC:
+#  - NOTE:  DO NOT add -noacc to LDFLAGS if QE uses OpenACC,
+#           otherwise you will get linker errors
+# FFLAGS += -noacc
+# LDFLAGS += -noacc
+
+# To report NVML information about NVIDIA GPUs:
+FFLAGS += -DSHOW_NVML_INFO
+NVGPU_LDFLAGS = -lnvidia-ml
+
+# OpenMP - target CPUs
+# --------------------
+# To enable OpenMP:
+FFLAGS += -mp=multicore
+LDFLAGS += -mp=multicore
+
+# For parallel sorting
+CFLAGS += -mp=multicore -Minfo=all
+
+# To disable OpenMP:
+# FFLAGS += -nomp
+# LDFLAGS += -nomp
+
+# MPI - enable MPI support with nvfortran
+# ---------------------------------------
+# NOTE:  Don't need this on Perlmutter since the ftn wrapper takes care of this
+# FFLAGS += -Mmpi=mpich
+# LDFLAGS += -Mmpi=mpich -L$(MPICH_DIR)/lib
+
+# NOTE:  -Mchkptr causes failures, -Mbounds is incompatible with OpenMP and OpenACC
+DEBUG_FFLAGS = -g -Mchkstk -traceback
+DEBUG_LDFLAGS = -g -Mchkstk -traceback
+
+# ----------------------------------------------------------------------------
+
+# Configure paths to HDF5 headers/libraries
+
+HDF5_LIBS = -lhdf5 -lhdf5_fortran
+
+# NERSC Perlmutter
+IFLAGS += -I$(HDF5_ROOT)/include
+HDF5_LDFLAGS=-L$(HDF5_ROOT)/lib
+
+# ----------------------------------------------------------------------------
+
+# for debug mode
+FFLAGS += $(DEBUG_FFLAGS)
+LDFLAGS += $(DEBUG_LDFLAGS)
+
+
+MODFLAGS= $(BASEMOD_FLAGS) \
+          $(MOD_FLAG)../../PW/src \
+          $(MOD_FLAG)../../dft-d3 \
+          $(MOD_FLAG)../../LR_Modules\
+			 $(MOD_FLAG)../../PHonon/PH
+
+          
+PHMODS = ../../PHonon/PH/libph.a
+LRMODS = ../../LR_Modules/liblrmod.a
+PWOBJS = ../../PW/src/libpw.a
+QEMODS = ../../Modules/libqemod.a ../../KS_Solvers/libks_solvers.a \
+         ../../FFTXlib/src/libqefft.a ../../LAXlib/libqela.a \
+			../../UtilXlib/libutil.a ../../dft-d3/libdftd3qe.a \
+         ../../upflib/libupf.a ../../XClib/xc_lib.a \
+         ../../MBD/libmbd.a
+
+F90FLAGS = $(FFLAGS) $(FDFLAGS) $(MODFLAGS) $(IFLAGS)
+
+# Avoid interleaving -L and -l arguments; some compilers only support
+# -l arguments after all -L arguments have been specified.
+#LDFLAGS += $(HDF5_LDFLAGS) $(HDF5_LIBS)
+LDFLAGS += $(HDF5_LDFLAGS) $(NVGPU_LDFLAGS)
+
